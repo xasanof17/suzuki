@@ -1,0 +1,380 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+:root {
+    --black: #2f2f2f;
+    --white: #fff;
+    --red: #f83038;
+}
+
+.main {
+    position: relative;
+    min-height: 100vh;
+    background: linear-gradient(#1c1c1c, #323232);
+    padding: 30px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main::before {
+    content: 'Adventure';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 16vw;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.05);
+
+}
+
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    max-width: 80px;
+}
+
+.header__list {
+    display: flex;
+}
+
+.header__item {
+    list-style: none;
+}
+
+.header__link {
+    position: relative;
+    color: var(--white);
+    margin-left: 40px;
+    text-decoration: none;
+    transition: 0.25s;
+}
+
+.header__link:hover {
+    color: var(--red);
+}
+
+.content {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 100px;
+    z-index: 1;
+}
+
+.header__title {
+    font-size: 5em;
+    font-weight: 300;
+    color: var(--white);
+    text-align: center;
+}
+
+.header__title>span {
+    font-weight: 700;
+}
+
+.btn {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    text-decoration: none;
+    padding: 16px 36px;
+    margin-top: 20px;
+    border-radius: 50px;
+    font-size: 1.25em;
+    transition: 0.25s;
+}
+
+.btn:hover {
+    letter-spacing: 4px;
+}
+
+.bike {
+    max-width: 80%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 30px 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer__list {
+    display: flex;
+}
+
+.footer__item {
+    list-style: none;
+}
+
+.footer__link {
+    color: var(--white);
+    font-size: 2em;
+    margin-right: 20px;
+    transition: 0.25s;
+}
+
+.footer__link:hover {
+    color: var(--red);
+}
+
+.dots {
+    display: flex;
+}
+
+.dots .dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+.dot.active {
+    background: var(--white);
+}
+
+.slides {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+    transition: 0.25s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.slides.active {
+    opacity: 1;
+    top: 50%;
+}
+
+.slide__title {
+    color: var(--white);
+    font-size: 3em;
+}
+
+.slide__title:last-child {
+    text-align: end;
+}
+
+
+.slide__title>span {
+    color: var(--red);
+    font-size: 0.5em;
+    font-weight: 400;
+    font-style: italic;
+}
+
+/* Now, Make it Responsive */
+@media(max-width: 991px) {
+    .main {
+        padding: 40px;
+    }
+
+    .header {
+        padding: 20px 40px;
+    }
+
+    .slider {
+        position: relative;
+        width: 100%;
+        height: 180px;
+    }
+
+    .slides {
+        position: absolute;
+        top: 50%;
+        padding: 0;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .slides__title {
+        font-size: 2.5em;
+        text-align: center;
+    }
+
+    .slide__title:last-child {
+        text-align: center;
+    }
+
+    .bike {
+        max-width: 100%;
+        margin-top: 30px;
+    }
+
+    .footer {
+        position: relative;
+        margin-top: 50px;
+        flex-direction: column-reverse;
+        padding: 0 40px;
+    }
+
+    .footer__list {
+        margin-top: 40px;
+    }
+
+    .header__title {
+        font-size: 3em;
+    }
+
+    .header__list {
+        display: none;
+    }
+
+    .menu-btn {
+        width: 50px;
+        height: 2px;
+        background: var(--white);
+        position: relative;
+        padding: 0;
+        border: none;
+        border-radius: none;
+        cursor: pointer;
+        z-index: 1000;
+    }
+
+    .menu-btn.active {
+        position: fixed;
+        top: 50px;
+        right: 40px;
+    }
+
+    .menu-btn::after,
+    .menu-btn::before {
+        content: '';
+        position: absolute;
+        width: inherit;
+        height: inherit;
+        background: var(--white);
+        left: 0;
+        top: -10px;
+        transition: 0.3s;
+    }
+
+    .menu-btn::after {
+        top: 10px;
+    }
+
+    .menu-btn.active::after {
+        transform: rotate(45deg);
+        top: 0;
+    }
+
+    .menu-btn.active::before {
+        transform: rotate(-45deg);
+        top: 0;
+    }
+
+    .menu-btn.active {
+        background: transparent;
+    }
+
+    .header__list.active {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column-reverse;
+        z-index: 999;
+        background: var(--black);
+        transition: 0.5s;
+    }
+
+    .header__list.active .header__link {
+        font-size: 1.5em;
+        margin: 10px 0;
+        display: inline-block;
+    }
+
+    .slide__title {
+        font-size: 2em;
+    }
+
+    .slide__title>span {
+        font-size: 0.7em;
+    }
+
+    .footer__link {
+        margin-right: 0;
+    }
+
+    .footer__list {
+        display: flex;
+        gap: 20px;
+    }
+
+    .dots .dot {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+    }
+
+    .dot {
+        margin-left: 0;
+        gap: 20px;
+    }
+
+
+    .btn {
+        padding: 12px 35px;
+        font-size: 1.20em;
+    }
+}
+
+@media(max-width: 320px) {
+    .bike {
+        max-width: 133%;
+    }
+
+    .main::before {
+        font-size: 63px;
+    }
+
+    .dots .dot {
+        width: 15px;
+        height: 15px;
+        margin-left: 20px;
+    }
+
+    .btn {
+        padding: 12px 35px;
+        font-size: 1.20em;
+    }
+}
